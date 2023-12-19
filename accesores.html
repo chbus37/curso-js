@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios</title>
+</head>
+<body>
+    
+    <ul id="contenedor">
+
+    </ul>
+
+
+
+
+    <script>
+    // METODOS ACCESORES GETTERS AND SETTERS, establecer y obtener los valores de atributos de nuestra clase.
+
+    class Humano{
+        constructor(nombre, edad, email){
+            this._nombre = nombre
+            this._edad = edad
+            this._email = email
+           }
+           saludar(){
+            document.write('Saludamos a: ' + this._nombre)
+           }
+
+           get nombre (){
+                return this._nombre;
+           }
+
+           set nombre(nombre){
+            this._nombre = nombre;
+           }
+        }
+
+
+
+        let chino = new Humano('Chinito', 37, 'dhdshdh@gmail.com')
+        
+        chino.nombre = "Toni Kroos";
+        chino.saludar();
+       
+
+
+
+
+
+
+    
+
+
+    </script>
+</body>

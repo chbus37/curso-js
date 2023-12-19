@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios</title>
+</head>
+<body>
+    
+    <ul id="contenedor">
+
+    </ul>
+
+
+
+
+    <script>
+    // PROTOTIPOS
+
+    // POO
+    /*
+    Clases: modelo a seguir
+    Objeto: Es una instancia de una clase
+    Atributos: es una caracteristica o propiedad del objeto(son variables dentro de un objeto)
+    Metodos: acciones que un objeto puede realizar (son funciones dentro de un objeto)
+    */
+
+    // const animal = {
+    //     nombre: "snoopy",
+    //     sonar(){
+    //         console.log("hago sonidos porque estoy vivo");
+    //     }
+    // }
+
+    // const animal2 = {
+    //     nombre: "lola bugs",
+    //     sonar(){
+    //         console.log("hago sonidos porque estoy vivo");
+    //     }
+    // }
+
+    // console.log(animal);
+    // console.log(animal2);
+
+    // FUNCION CONSTRUCTORA
+
+    
+    
+    function Animal (nombre, genero){
+        // Atributos
+        this.nombre = nombre;
+        this.genero = genero;
+        // Metodo
+        this.sonar = function (){
+            console.log("hago sonidos poirque estoy vivo");
+        }
+    }
+    
+
+    // Funcion constructora donde asignamos los atributos nada mas al prototipo no a la funcion como tal.
+
+    function Animal (nombre, genero){
+        // Atributos
+        this.nombre = nombre;
+        this.genero = genero;
+        
+    }
+
+    // Los metodos seran agregagos al prototipo de la funcion constructora.
+
+    Animal.prototype.sonar = function (){
+            console.log("hago sonidos poirque estoy vivo");
+        }
+    Animal.prototype.saludar = function(){
+        console.log(`Hola me llamo ${this.nombre}`);
+    }
+
+    const snoopy = new Animal("snoopy", "macho"),
+            lola = new Animal("lola bugs", "hembra");
+
+    console.log(snoopy);
+    console.log(lola);
+
+    snoopy.sonar();
+    lola.sonar();
+
+    lola.saludar();
+    
+
+    </script>
+</body>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios</title>
+</head>
+<body>
+    
+    <ul id="contenedor">
+
+    </ul>
+
+
+
+
+    <script>
+    // MANEJO DE ERORRES
+ 
+    try {
+        console.log("en el try se agrega el codigo a evaluar");
+        noExiste;
+        console.log("Segundo mensaje del try")
+    } catch (error) {
+        console.log("catch captura cualquier error surgido del try");
+        console.log(error);
+    }finally{
+        console.log("el bloque finally se ejecutara siempre al final de un bloque try catch");
+    }
+
+    // EJEMPLO
+
+    try {
+        let numero = "y";
+
+        if(isNaN(numero)){
+            throw new Error("El caracter ingresado no corresponde a un numero");
+        }
+
+        console.log(numero * numero);
+    } catch (error) {
+        alert(`Se produjo el siguiente error: ${error}`);
+    }
+    
+
+
+    </script>
+</body>

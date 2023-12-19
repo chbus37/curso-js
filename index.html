@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios</title>
+</head>
+<body>
+    <div id="saludos">
+    </div>
+    
+    <input type="text" id="entrada"><br><br>
+    <button id="btn">Apretame</button>
+    <p id="cantidades"></p>
+
+    <ul id="container">
+
+    </ul>
+
+
+
+
+    <script>
+        /*  Programa una función que cuente el número de 
+        caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.*/
+
+        
+        function contarCaracteres(cadena = ""){
+            if(!cadena){
+                console.warn("No ingresaste ninguna cadena");
+            }else{
+                console.info(`La cadena "${cadena}" tiene ${cadena.length} caracteres`);
+            }
+        }
+
+        contarCaracteres("hola");
+
+        /* Programa una funcion que te devuelva el texto recortado segun
+        el numero de caracteres indicados, pe.miFuncion("Hola Mundo", 4) devolvera
+        "Hola"
+        */
+
+        const recortarTexto = (cadena = "", longitud = undefined) =>
+            (!cadena)
+                ? console.warn("No ingresaste el texto")
+                : console.info(cadena.slice(0, longitud));  
+
+        recortarTexto("Hola Mundo", 4);
+        recortarTexto();
+        recortarTexto("Hola Hola");
+
+        /* Programa una funcion que dada una string te devuelva un array de textos separados por cierto
+        caracter, pe. miFuncion('hola que tal,' devolvera ['hola', 'que', 'tal'])
+        */
+
+        const cadenaAArreglo = (cadena = "", separador = undefined) =>
+        (!cadena)
+                ? console.warn("No ingresaste el texto")
+                : (separador === undefined)
+                    ? console.warn("No ingresaste el caracter separador")
+                    : console.info(cadena.split(separador));
+                    
+        cadenaAArreglo("lorem ipsum jsoa jsoa jasjasls", " ");
+
+        /* Programa una funcion que repita un texto X veces, pe.miFuncion("Hola Mundo", 3) devolvera
+        Hola Mundo Hola Mundo Hola Mundo
+        */
+
+        const repetirTexto = (texto = "", veces = undefined) => {
+            if(!texto){
+                return console.warn("No ingresaste un texto");
+            }
+
+            if(veces === undefined){
+                return console.warn("No ingresaste el numero de veces a repetir el texto");
+            }
+
+            if(veces === 0) return console.error("El numero de veces no puede ser 0");
+
+            if(Math.sign(veces) === -1){
+                return console.error("El numero de veces no puede ser negativo");
+            }
+
+            for(let i = 1; i <= veces; i++){
+                console.info(`${texto}, ${i}`);
+            }
+
+        }
+
+        repetirTexto("Hola Mundo", 3);
+        repetirTexto("Hola Mundo",0);
+        repetirTexto("Hola Mundo", -20);
+
+        /*Programa una funcion que invierta las palabras de una cadena de texto, pe.miFuncion("Hola Mundo")
+        devolvera "odnuM aloH"
+        */
+
+         const invertirCadena = (cadena = "") =>
+            (!cadena)
+                ? console.warn("No ingresaste una cadena de texto")
+                : console.info(cadena.split("").reverse().join(""));
+
+        invertirCadena("Hola Mundo");
+
+        // VOLVER ARREGLO A CADENA USANDO JOIN, REVERSE PARA DAR VUELTA UNA CADENA.
+
+
+        /* Programa una funcion para contar el numero de veces que se repite una palabra en un texto largo
+        pe miFuncion("hola mundo adios mundo","mundo") devolvera 2
+        */
+
+        const textoEnCadena = (cadena = "", texto = "") =>{
+            if(!cadena) return console.warn("No ingresaste el texto largo");
+
+            if(!texto) return console.warn("No ingresaste la palabra a evaluar");
+
+            let i = 0,
+                contador = 0;
+
+            while (i !== -1) {
+                i = cadena.indexOf(texto, i);
+                if(i !== -1){
+                    i++;
+                    contador++;
+                }
+            }
+
+            return console.info(`La palabra ${texto} se repite ${contador} veces`);
+        }
+
+        textoEnCadena();
+        textoEnCadena("Hola mundo adios mundo");
+        textoEnCadena("hola mundo adios mundo", "mundo");
+
+        /* Programa una funcion que valide si una palabra o frase dada, es un palindromo
+        pe.miFuncion("Salas") devolvera true
+        */
+
+        const palindromo = (palabra = "") => {
+            if(!palabra) return console.warn("No ingresaste una palabra o frase");
+
+            palabra = palabra.toLowerCase();
+            let alReves = palabra.split("").reverse().join("");
+
+            return(palabra === alReves)
+                ? console.info("Si es palindromo")
+                : console.info("No es palindromo");
+        }
+
+        palindromo();
+        palindromo("salas");
+        palindromo("Hola Mundo");
+
+        /*Programa una funcion que elimine cierto patron de caracteres de un texto dado
+        pe.miFuncion ("xyz1, xyz2,xyz3,xyz4 y xyz5","xyz") devolvera "1,2,3,4 y 5"
+        */
+
+        const eliminarCaracteres = (texto = "",patron = "") =>
+        (!texto)
+            ? console.warn("No ingresaste un texto")
+            : (!patron)
+                ? console.warn("No ingresaste un patron")
+                : console.info(texto.replace(new RegExp(patron, "ig"),""));
+
+            eliminarCaracteres();
+            eliminarCaracteres("xyz1, xyz2,xyz3,xyz4 y xyz5");
+            eliminarCaracteres("xyz1, xyz2,xyz3,xyz4 y xyz5","xyz");
+
+
+
+
+
+        /*Progama una funcion que obtenga un numero aleatorio entre 501 y 600
+        */
+
+        const aleatorio = () => console.info(Math.round(Math.random() * 100) + 500);
+
+        aleatorio();
+
+        /*Programa una funcion que reciba un numero y evalue si es capicua, pe
+        miFuncion(2002) devolvera true
+        */
+
+        const capicua = (numero = 0) => {
+            if(!numero) return console.warn("No ingresaste un numero");
+
+            if(typeof numero !== "number") return console.error("El valor ingresado es un string");
+
+            numero = numero.toString();
+
+            let alReve = numero.split("").reverse().join("");
+
+            return(numero === alReve)
+             ? console.info("Si es capicua")
+             : console.info("No es capicua");
+        }
+
+        capicua();
+        capicua(2002);
+        capicua(1998);
+
+        /* Programa una funcion que calcule el factorial de un numero, pe.miFuncion(5) devolvera 120
+        */
+
+        const factorial = (numero = undefined) => {
+            if(numero === undefined) return console.warn("No ingresaste un numero");
+
+            if(typeof numero !== "number") return console.error("El valor ingresado no es un numero");
+
+            if(numero === 0) return console.error("El numero no puede ser 0");
+
+            if(Math.sign(numero) === -1) return console.error("El numero no puede ser negativo");
+
+            let factorial = 1;
+
+            for(let i = numero; i > 1; i--){
+                factorial = factorial * i;
+            }
+
+            return console.info(`El factorial de ${numero} es ${factorial}`);
+        }
+
+        factorial();
+        factorial("5");
+        factorial(0);
+        factorial(-5);
+        factorial(5);
+
+
+        /* Programa una funcion que determine si un numero es primo o no, pe.miFuncion(7) devolvera true
+        */
+
+        const numeroPrimo =  (numero = undefined) => {
+            if(numero === undefined) return console.warn("No ingresaste un numero");
+
+            if(typeof numero !== "number") return console.error("El valor ingresado no es un numero");
+
+            if(numero === 0) return console.error("El numero no puede ser 0");
+
+            if(numero === 1) return console.error("El numero no puede ser 1");
+
+            if(Math.sign(numero) === -1) return console.error("El numero no puede ser negativo");
+
+            let divisible = false;
+
+            for(let i = 2; i < numero; i++){
+                if((numero % i) === 0){
+                    divisible = true;
+                    break;
+                }
+            }
+
+            return(divisible)
+                ? console.log("El numero NO es primo")
+                : console.log("El numero SI es primo");
+        }
+
+
+        numeroPrimo();
+        numeroPrimo("220");
+        numeroPrimo(7);
+
+        /* Programa una funcion que determine si un numero es par o impar pe.miFuncion(29) devolvera impar
+        */
+
+        const numeroParImpar = (numero = undefined) => {
+            if(numero === undefined) return console.warn("No ingresaste un numero");
+
+            if(typeof numero !== "number") return console.error("El valor ingresado no es un numero");
+
+            return((numero % 2 === 0))
+                ? console.info("El numero es Par")
+                : console.info("El numero es Impar");
+            
+
+        }
+
+        numeroParImpar();
+        numeroParImpar("23");
+        numeroParImpar(19);
+        numeroParImpar(12);
+
+        /* Programa una funcion para convertir grados celsius a fahrenheit y viceversa pe.miFuncion(0C) devolvera
+        32F
+        */
+
+        // const convertirGrados = (grados = undefined,unidad = undefined) => {
+        //     if(grados === undefined) return console.warn("No ingresaste un grado a convertir");
+
+        //     if(typeof grados !== "number") return console.error("El valor ingresado no es un grado");
+
+        //     if(unidad === undefined) return concole.warn("No ingresaste el tipo de grado a convertir");
+
+        //     if(typeof unidad !== "string") return console.error("El valor ingresado no es una cadena de texto");
+
+        //     if(unidad.length !== 1 || ) return console.warn("Valor de unidad invalido");
+
+
+
+
+        // }
+
+
+
+
+        // PROBANDO EL MATH RANDOM
+
+        let scorePlayer1 = Math.floor(Math.random() * (1000 - 1)) + 1;
+        let scorePlayer2 = Math.floor(Math.random() * (1000 - 1)) + 1;
+        let scorePlayer3 = Math.floor(Math.random() * (1000 - 1)) + 1;
+        let perfectScore = 35;
+
+        if(scorePlayer1 > scorePlayer2 && scorePlayer1 > scorePlayer3 || scorePlayer1 === perfectScore){
+            console.log('Player 1 le ganaste a todos con tus ' +scorePlayer1);
+        }else if(scorePlayer2 > scorePlayer1 && scorePlayer2 > scorePlayer3 || scorePlayer2 === perfectScore){
+            console.log('Player 2 le ganaste a todos con tus ' + scorePlayer2);
+        }else if(scorePlayer3 > scorePlayer1 && scorePlayer3 > scorePlayer2 || scorePlayer3 === perfectScore){
+            console.log('Player 3 les ganaste a todos con tus ' +scorePlayer3);
+        }else{
+            console.log('No hay ganadores, es un empate');
+        }
+
+        
+        // PARAMETROS DE FUNCIONES
+
+        let toby = 10;
+
+        function calcularEdad(edad){
+            let calculo = edad * 7;
+            console.log('La edad del perrito es ' + calculo);
+        }
+
+        calcularEdad(30);
+
+
+        // GET ELEMENT BY ID
+
+        let titulo = document.getElementById('saludo');
+        let entrada = document.getElementById('entrada');
+        let btn = document.getElementById('btn');
+        let contenedor = document.getElementById('saludos');
+        let cantidadDeSaludos = 0;
+        let cantidades = document.getElementById('cantidades');
+
+        // INNER HTML
+
+        titulo.innerHTML = 'Ejercicios de JavaScript';
+
+        btn.innerHTML = 'Pinchame Corneta';
+
+        alert('Bienvenido a mi sitio web');
+        let boton = confirm('Que sos?');
+
+        console.log(boton);
+
+
+        // ADD EVENT LISTENER
+
+        btn.addEventListener('click', function(){
+            cantidadDeSaludos++;
+            let tipo = entrada.value;
+            // titulo.innerHTML = 'Hola ' +tipo+ ' ,BIENVENIDO';
+            let saludito = 'Hola ' +tipo+ ' ,Bienvenido'
+            var sal = document.createElement('h1');
+            var txt = document.createTextNode(saludito);
+            sal.appendChild(txt);
+            contenedor.appendChild(sal);
+            if(cantidadDeSaludos > 1){
+                cantidades.innerHTML = "Saludamos a " +cantidadDeSaludos+ ' personas';
+            }else{
+                cantidades.innerHTML = "Saludamos a " +cantidadDeSaludos+ ' persona';
+            }
+            
+        });
+
+
+    
+
+
+
+
+
+        
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

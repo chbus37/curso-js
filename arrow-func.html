@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios</title>
+</head>
+<body>
+    
+    <ul id="contenedor">
+
+    </ul>
+
+
+
+
+    <script>
+    // ARROW FUNCTIONS
+
+    const saludar = (nombre) => {
+        console.log(`Hola ${nombre}`);
+    }
+
+    saludar("Chino");
+
+    // const sumar = function(a,b){
+    //     return a + b;
+    // }
+
+    const sumar = (a,b) => {
+        return a + b;
+    }
+
+    console.log(sumar(2,2));
+
+    const numeros = [1,2,3,4,5];
+
+    numeros.forEach((el,index) => {
+        console.log(`${el} esta en la posicion ${index}`);
+    });
+
+    /*
+    No declarar arrow functions dentro de objetos literales.
+    */
+
+    </script>
+</body>

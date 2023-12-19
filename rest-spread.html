@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios</title>
+</head>
+<body>
+    
+    <ul id="contenedor">
+
+    </ul>
+
+
+
+
+    <script>
+    // PARAMETROS REST SPREAD
+    
+    // REST, PUEDE O NO ESTAR, NO VA A ARROJAR ERROR.
+
+    function sumar(a,b,...c){
+        let resultado = a + b;
+
+        c.forEach(function(n){
+            resultado += n;
+        });
+
+        return resultado;
+    }
+
+    console.log(sumar(1,2));
+    console.log(sumar(1,2,3,4));
+
+    // OPERADOR SPREAD 
+
+    const arr1 = [1,2,3,4,5],
+    arr2 = [6,7,8,9,0];
+
+    const arr3 = [...arr1, ...arr2];
+
+    console.log(arr3);
+
+
+    </script>
+</body>

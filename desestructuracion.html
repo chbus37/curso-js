@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios</title>
+</head>
+<body>
+    
+    <ul id="contenedor">
+
+    </ul>
+
+
+
+
+    <script>
+    // DESESTRUCTURACION
+
+    const numeros = [1,2,3];
+
+    const [one, two, three] = numeros;
+    console.log(one,two,three);
+
+    // EN OBJETOS, aca las variables se tienen que llamar igual que la propiedad
+
+    const persona = {
+        nombre: "Chino",
+        apellido: "Bustos",
+        edad: 30
+    }
+
+    let {nombre, apellido, edad} = persona;
+    console.log(nombre, apellido, edad);
+
+    
+
+    
+
+    </script>
+</body>
